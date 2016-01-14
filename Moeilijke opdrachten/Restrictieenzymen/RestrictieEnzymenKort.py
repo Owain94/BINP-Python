@@ -1,0 +1,5 @@
+from re import finditer
+enzymes = [{'abbrev': 'EcoRI','full': 'Escherichia coli','sequence': 'GAATTC','offset': 1},{'abbrev': 'EcoRII','full': 'Escherichia coli','sequence': 'CCWGG','offset': 0},{'abbrev': 'BamHI','full': 'Bacillus amyloliquefaciens','sequence': 'GGATCC','offset': 1},{'abbrev': 'HindIII','full': 'Haemophilus influenzae','sequence': 'AAGCTT','offset': 1},{'abbrev': 'NotI','full': 'Nocardia otitidis','sequence': 'GCGGCCGC','offset': 2}]
+for enzyme in enzymes: print("{}) {} ({})".format(enzymes.index(enzyme) + 1, enzyme["full"], enzyme["abbrev"]))
+inp = input("Kies een enzym:\n")
+for m in finditer(enzymes[int(inp) - 1]['sequence'], open(input("Geef de naam van het bestand met de DNA-sequentie:\n")).read().upper()): print("Enzym gevonden op index {} tot {}, Dit enzym knipt de sequentie na positie {}.".format(m.start(), m.end(), m.start() + enzymes[int(inp) - 1]['offset']))

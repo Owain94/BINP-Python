@@ -1,0 +1,8 @@
+def fu(arg = False):
+    return arg
+
+def main():
+    print(fu())
+    print(fu(True))
+
+main()

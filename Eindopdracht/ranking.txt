@@ -1,0 +1,12 @@
+Positie;Naam;Lengte;Fouten;Tijd;Score
+1;Owain;27;0;0m2s;270000
+2;;17;0;0m3s;170000
+3;Testing;16;0;0m4s;160000
+4;mies;16;0;0m3s;160000
+5;Test;12;0;0m15s;120000
+6;Owain;10;0;0m4s;100000
+7;Owain;9;0;0m5s;90000
+8;Owain;8;0;0m2s;80000
+9;WIEISDEBAAS!?;8;0;0m3s;80000
+10;jeroen;15;3;0m12s;4054
+
