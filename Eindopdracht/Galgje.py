@@ -222,7 +222,6 @@ class Hangman:
         '         ;  |      ;  |      ;  |      ;  |      ; / \     ',
         '   ____  ;  |/     ;  |      ;  |      ;  |      ; / \     ',
         '   ____  ;  |/   | ;  |      ;  |      ;  |      ; / \     ',
-        '   ____  ;  |/   | ;  |      ;  |      ;  |      ; / \     ',
         '   ____  ;  |/   | ;  |    O ;  |      ;  |      ; / \     ',
         '   ____  ;  |/   | ;  |    O ;  |    | ;  |      ; / \     ',
         '   ____  ;  |/   | ;  |   \O ;  |    | ;  |      ; / \     ',
@@ -664,12 +663,14 @@ def main() -> None:
                     input('Wat is je naam?\n'))
                 continue
 
-            hangman = Hangman(word_list.random_word())
+            word = word_list.random_word()
+            hangman = Hangman(word)
             high_score.begin_timer()
             game_running = True
 
             while hangman.faults <= 9 and game_running:
                 print('\n' * 175)
+                print(word)
                 print(Hangman.print_gallow_and_chars(hangman.guesses,
                                                      hangman.current_word,
                                                      hangman.faults))

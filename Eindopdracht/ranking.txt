@@ -8,5 +8,5 @@ Positie;Naam;Lengte;Fouten;Tijd;Score
 7;Owain;9;0;0m5s;90000
 8;Owain;8;0;0m2s;80000
 9;WIEISDEBAAS!?;8;0;0m3s;80000
-10;jeroen;15;3;0m12s;4054
+10;owain;8;0;0m13s;80000
 
