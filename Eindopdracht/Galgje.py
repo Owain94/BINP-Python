@@ -669,8 +669,10 @@ def main() -> None:
             game_running = True
 
             while hangman.faults <= 9 and game_running:
+                # Python can't clear its own output (best scripting language
+                # ever...) so printing a bunch of new lines is the only way
                 print('\n' * 250)
-                # print(word)
+                
                 print(Hangman.print_gallow_and_chars(hangman.guesses,
                                                      hangman.current_word,
                                                      hangman.faults))
