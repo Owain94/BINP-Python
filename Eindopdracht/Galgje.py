@@ -124,7 +124,7 @@ class WordList:
     @coroutine
     def save_list(file: str, data: list, loop: any) -> None:
         """
-        Save the new wordlist to a file
+        Save the new list to a file
 
         :param file: Filename of the file which contains all the words
         :param data: New list with words
@@ -160,7 +160,7 @@ class WordList:
 
     def display_all_words(self) -> list:
         """
-        Print out all words
+        Print all words
 
         :return: All the words
         """
@@ -178,7 +178,7 @@ class WordList:
 
     def sort_list(self) -> None:
         """
-        Sort list length and alphabetical order
+        Sort list by length and alphabetical order
 
         :return: Sorted list
         """
@@ -234,7 +234,7 @@ class Hangman:
         """
         Initialization of the Hangman class
 
-        :param generated_word: Random generated word
+        :param generated_word: Randomly generated word
 
         :return: None
         """
@@ -257,9 +257,8 @@ class Hangman:
         character from the alphabet replaced with param asc if the
         original character hasn't been guessed yet
 
-
-        :param guesses: List with all the guessed charachters
-        :param word: Random generated word (optional)
+        :param guesses: List with all the guessed characters
+        :param word: Randomly generated word (optional)
         :param asc: Character that will replace the original character
         (optional)
 
@@ -295,7 +294,7 @@ class Hangman:
         current word
 
         :param guesses: List with all the guesses
-        :param generated_word: Random generated word
+        :param generated_word: Randomly generated word
         :param faults: Amounts of faults
 
         :return: Formatted string
@@ -309,6 +308,7 @@ class Hangman:
 
         current_gallow = Hangman.GALLOW[faults].split(';')
 
+        # PEP 8 readability...
         return '{:>8} {:>67}\n' \
                '{:>9} {:>66}\n' \
                '{:>9}\n' \
@@ -330,9 +330,9 @@ class Hangman:
 
     def get_current_word(self) -> str:
         """
-        Return the random generated word
+        Return the randomly generated word
 
-        :return: Random generated word
+        :return: Randomly generated word
         """
         return self.current_word
 
@@ -396,7 +396,7 @@ class HighScore:
         Initialization of the HighScore class
 
         :param current_path: Path where the script is executed
-        :param file_name: Filename of the file which contains the high
+        :param file_name: Filename of the file that contains the high
         scores
 
         :return: None
@@ -446,7 +446,7 @@ class HighScore:
     @staticmethod
     def convert_high_score(scores: list) -> str:
         """
-        Convert the hig scores from nested lists to a string
+        Convert the high scores from nested lists to a string
 
         :param scores: All high scores
 
@@ -468,7 +468,7 @@ class HighScore:
         """
         Calculate the players score
 
-        :param word_length: The length of the random generated word
+        :param word_length: The length of the randomly generated word
         :param tries: Amount of tries before the word was guessed
         :param seconds: Amount of time spend before the word was
         guessed in seconds
@@ -499,8 +499,7 @@ class HighScore:
         """
         Get all the scores from the high score file
 
-        :param filename: Filename of the file which contains all the
-        scores
+        :param filename: Filename of the file which contains all the scores
         :param loop: Current event loop
 
         :return: None
@@ -552,7 +551,7 @@ class HighScore:
 
     def show_all_scores(self) -> str:
         """
-        Return a overview of all the scores in the high score list
+        Return an overview of all the scores in the high score list
 
         :return: A formatted overview of all the scores
         """
@@ -596,7 +595,7 @@ class HighScore:
 
     def check_high_score(self, score: int) -> tuple:
         """
-        Check if the score if one of the top 10 scores
+        Check if the score is one of the top 10 scores
 
         :param score: Obtained score
 
@@ -626,11 +625,12 @@ def main() -> None:
         print('1. Een woord toevoegen\n'
               '2. Het spel spelen\n'
               '3. De ranking bekijken\n'
-              '4. Stoppen')
+              '4. Student\n'
+              '5. Stoppen')
 
-        inp = input('\nWat wil je doen? [1 - 4]\n')
+        inp = input('\nWat wil je doen? [1 - 5]\n')
 
-        if inp not in '1234' and not len(inp) == 1:
+        if inp not in '12345' and not len(inp) == 1:
             print('Dit is geen geldige invoer, probeer opnieuw!')
 
         # <editor-fold desc="Add word">
@@ -669,13 +669,14 @@ def main() -> None:
             game_running = True
 
             while hangman.faults <= 9 and game_running:
-                print('\n' * 175)
-                print(word)
+                print('\n' * 250)
+                # print(word)
                 print(Hangman.print_gallow_and_chars(hangman.guesses,
                                                      hangman.current_word,
                                                      hangman.faults))
 
                 if hangman.faults == 9:
+                    # Stop the game
                     game_running = False
 
                     print('Helaas, je hebt het woord niet geraden. '
@@ -683,10 +684,9 @@ def main() -> None:
                                                       lower()))
 
                 elif hangman.check_guessed():
+                    # Stop the game
                     game_running = False
-
                     seconds = high_score.end_timer()
-
                     score = high_score.get_score(len(hangman.current_word),
                                                  hangman.faults, seconds)
 
@@ -701,7 +701,11 @@ def main() -> None:
                               'in de ranking!\n'
                               .format(check_highscore[1]))
 
+                        # Convert the total amount of seconds to
+                        # minutes and seconds
                         m, s = divmod(seconds, 60)
+
+                        # PEP 8 readability...
                         high_score.add_high_score(name,
                                                   len(hangman.current_word),
                                                   hangman.faults,
@@ -727,8 +731,18 @@ def main() -> None:
             print('\n' + high_score.show_all_scores())
         # </editor-fold>
 
-        # <editor-fold desc="Exit">
+        # <editor-fold desc="Student">
         elif inp == '4':
+
+            print(__author__ + '\n' +
+                  __student__ + '\n' +
+                  __class__ + '\n' +
+                  __email__ + '\n')
+
+        # </editor-fold>
+
+        # <editor-fold desc="Exit">
+        elif inp == '5':
 
             running = False
         # </editor-fold>
