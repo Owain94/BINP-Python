@@ -672,7 +672,7 @@ def main() -> None:
                 # Python can't clear its own output (best scripting language
                 # ever...) so printing a bunch of new lines is the only way
                 print('\n' * 250)
-                
+
                 print(Hangman.print_gallow_and_chars(hangman.guesses,
                                                      hangman.current_word,
                                                      hangman.faults))
