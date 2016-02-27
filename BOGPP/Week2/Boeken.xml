@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <title>Harry Potter</title>
+        <author>J.K. Rowling</author>
+        <pages>225</pages>
+    </book>
+    <book>
+        <title>De Aanslag</title>
+        <author>Harry Mulisch</author>
+        <pages>321</pages>
+    </book>
+    <book>
+        <title>Lord of the Rings deel 1</title>
+        <author>J.R.R. Tolkien</author>
+        <pages>412</pages>
+    </book>
+    <book>
+        <title>Lord of the Rings deel 2</title>
+        <author>J.R.R. Tolkien</author>
+        <pages>381</pages>
+    </book>
+    <book>
+        <title>Lord of the Rings deel 3</title>
+        <author>J.R.R. Tolkien</author>
+        <pages>464</pages>
+    </book>
+    <book>
+        <title>Dolfje Weerwolfje 1</title>
+        <author>Japie Krekel</author>
+        <pages>98</pages>
+    </book>
+    <book>
+        <title>Dolfje Weerwolfje 2</title>
+        <author>Japie Krekel</author>
+        <pages>102</pages>
+    </book>
+    <book>
+        <title>Dolfje Weerwolfje 3</title>
+        <author>Japie Krekel</author>
+        <pages>79</pages>
+    </book>
+    <book>
+        <title>Dolfje Weerwolfje 4</title>
+        <author>Japie Krekel</author>
+        <pages>132</pages>
+    </book>
+    <book>
+        <title>De Bijbel</title>
+        <author>Meerdere auteurs</author>
+        <pages>1643</pages>
+    </book>
+</books>

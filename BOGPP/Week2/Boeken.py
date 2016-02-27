@@ -1,5 +1,6 @@
 from ast import literal_eval
 
+
 class Book:
     def __init__(self, title: str, author: str, amount_of_pages: int,
                  status: bool = True) -> None:
@@ -78,7 +79,7 @@ def resolve_book_data(data: str) -> list:
 
 def main() -> None:
 
-    books = resolve_book_data(get_book_list('boeken.txt'))
+    books = resolve_book_data(get_book_list('Boeken.txt'))
     for book in books:
         print("{}\n".format(book))
 
