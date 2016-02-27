@@ -19,64 +19,64 @@ class Book:
                     self.amount_of_pages, self.code)
 
     @property
-    def title(self):
+    def title(self) -> str:
         return self._title
 
     @title.setter
-    def title(self, value):
+    def title(self, value: str) -> None:
         self._title = value
         self._code = self.book_code()
 
     @title.deleter
-    def title(self):
+    def title(self) -> None:
         del self._title
 
     @property
-    def author(self):
+    def author(self) -> str:
         return self._author
 
     @author.setter
-    def author(self, value):
+    def author(self, value: str) -> None:
         self._author = value
         self._code = self.book_code()
 
     @author.deleter
-    def author(self):
+    def author(self) -> None:
         del self._author
 
     @property
-    def status(self):
+    def status(self) -> bool:
         return self._status
 
     @status.setter
-    def status(self, value):
+    def status(self, value: bool) -> None:
         self._status = value
 
     @status.deleter
-    def status(self):
+    def status(self) -> None:
         del self._status
 
     @property
-    def amount_of_pages(self):
+    def amount_of_pages(self) -> int:
         return self._amount_of_pages
 
     @amount_of_pages.setter
-    def amount_of_pages(self, value):
+    def amount_of_pages(self, value: int) -> None:
         self._amount_of_pages = value
 
     @amount_of_pages.deleter
-    def amount_of_pages(self):
+    def amount_of_pages(self) -> None:
         del self._amount_of_pages
 
     @property
-    def code(self):
+    def code(self) -> str:
         return self._code
 
     @code.deleter
-    def code(self):
+    def code(self) -> None:
         del self._amount_of_pages
 
-    def book_code(self):
+    def book_code(self) -> str:
         return (self.author.split(" ")[-1][:2] + self.title[:2]).upper()
 
 
@@ -84,7 +84,7 @@ def average_pages(books: list) -> int:
     total_pages = 0
 
     for book in books:
-        total_pages += book.get_amount_of_pages()
+        total_pages += book.amount_of_pages
 
     return round(total_pages / len(books))
 
@@ -109,6 +109,8 @@ def main() -> None:
     books = parse_book_list('Boeken.xml')
     for book in books:
         print("{}\n".format(book))
+
+    print("Average amount of pages: {}".format(average_pages(books)))
 
 
 if __name__ == '__main__':
